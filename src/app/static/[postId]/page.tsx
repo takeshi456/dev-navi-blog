@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import parse from "html-react-parser";
 import { getDetail, getList } from "../../../../libs/microcms";
+import styles from "../../../../styles/Home.module.scss";
 
 export async function generateStaticParams() {
   const { contents } = await getList();
@@ -29,10 +30,9 @@ export default async function StaticDetailPage({
   }
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <h2>{time}</h2>
-      <div>{parse(post.body)}</div>
+    <div className={styles.main}>
+      <h1 className={styles.title}>{post.title}</h1>
+      <div className={styles.post}>{parse(post.body)}</div>
     </div>
   );
 }
