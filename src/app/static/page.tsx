@@ -26,6 +26,7 @@ export default async function StaticPage() {
                   />
                 )}
                 {post.title}
+                {new Date(post.createdAt).toLocaleDateString()}
               </Link>
             </li>
           );
