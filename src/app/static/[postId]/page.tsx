@@ -22,9 +22,6 @@ export default async function StaticDetailPage({
 }) {
   const post = await getDetail(postId);
 
-  // ページの生成された時間を取得
-  const time = new Date().toLocaleString();
-
   if (!post) {
     notFound();
   }

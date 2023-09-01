@@ -10,7 +10,7 @@ export type Blog = {
   id: string;
   title: string;
   body: string;
-  eyecatch?: MicroCMSImage;
+  thumbnail: MicroCMSImage;
 } & MicroCMSDate;
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -34,9 +34,6 @@ export const getList = async (queries?: MicroCMSQueries) => {
     queries,
   });
 
-  // データの取得が目視しやすいよう明示的に遅延効果を追加
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
   return listData;
 };
 
@@ -50,9 +47,6 @@ export const getDetail = async (
     contentId,
     queries,
   });
-
-  // データの取得が目視しやすいよう明示的に遅延効果を追加
-  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return detailData;
 };
