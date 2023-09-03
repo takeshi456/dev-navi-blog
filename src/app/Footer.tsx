@@ -1,7 +1,9 @@
+import { css } from "../../styled-system/css";
+
 const Footer = () => {
   return (
     <footer>
-      <nav className="p-2">フッターです</nav>
+      <small>@2023 能力開発navi</small>
     </footer>
   );
 };

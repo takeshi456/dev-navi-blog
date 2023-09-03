@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { getList } from "../../libs/microcms";
-import Image from "next/image";
+import ArticleList from "./components/ArticleList";
+import Sidebar from "./components/Sidebar";
 
 export default async function StaticPage() {
   const { contents } = await getList();
@@ -11,27 +11,9 @@ export default async function StaticPage() {
 
   return (
     <div>
-      <ul>
-        {contents.map((post) => {
-          return (
-            <li key={post.id}>
-              <Link href={`${post.id}`}>
-                {" "}
-                {post.thumbnail && (
-                  <Image
-                    src={post.thumbnail.url}
-                    alt="blog eyecatch"
-                    width={post.thumbnail.width}
-                    height={post.thumbnail.height}
-                  />
-                )}
-                {post.title}
-                {new Date(post.createdAt).toLocaleDateString()}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      {/* 上のdivフレックスにする */}
+      <ArticleList contents={contents} />
+      <Sidebar />
     </div>
   );
 }
