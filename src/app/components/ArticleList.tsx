@@ -11,7 +11,7 @@ const ArticleList = ({ contents }: ContentsListProps) => {
     <article>
       <div>
         {contents.map((contents) => (
-          <ArticleCard article={contents} />
+          <ArticleCard key={contents.title} article={contents} />
         ))}
       </div>
     </article>

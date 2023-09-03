@@ -1,5 +1,3 @@
-import { css } from "../../styled-system/css";
-
 const Footer = () => {
   return (
     <footer>

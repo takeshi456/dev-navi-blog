@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import parse from "html-react-parser";
 import { getDetail, getList } from "../../../libs/microcms";
-import { css } from "../../../styled-system/css";
 
 export async function generateStaticParams() {
   const { contents } = await getList();
@@ -28,7 +27,7 @@ export default async function StaticDetailPage({
 
   return (
     <div>
-      <h1 className={css({ fontSize: "6xl" })}>{post.title}</h1>
+      <h1 className="text-9xl text-center pt-10">{post.title}</h1>
       <div>{parse(post.body)}</div>
     </div>
   );
