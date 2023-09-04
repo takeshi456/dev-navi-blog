@@ -23,7 +23,7 @@ const ArticleCard = ({ article }: ContentCardProps) => {
           )}
         </div>
         <div className="flex h-2/6 items-center justify-between overflow-hidden bg-white p-2 text-black">
-          <p className="title h-full overflow-ellipsis p-2 text-lg font-medium">
+          <p className="title h-full overflow-ellipsis p-2 text-lg font-medium text-gray-600">
             {article.title}
           </p>
           <div className="flex h-full flex-col-reverse">

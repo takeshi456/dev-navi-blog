@@ -21,6 +21,7 @@ export default async function StaticDetailPage({
   params: { postId: string };
 }) {
   const post = await getDetail(postId);
+  console.log(post);
 
   if (!post) {
     notFound();
@@ -28,7 +29,7 @@ export default async function StaticDetailPage({
 
   return (
     <div className="mb-5 p-4 max-w-4xl m-auto">
-      <h1 className="text-5xl text-center py-3">{post.title}</h1>
+      <h1 className="text-5xl text-center py-3 text-gray-600">{post.title}</h1>
       <p className="py-3 text-right text-sm text-gray-500">
         {new Date(post.createdAt).toLocaleDateString()}
       </p>
@@ -42,7 +43,7 @@ export default async function StaticDetailPage({
           className="rounded  mx-auto"
         />
       )}
-      <div className="body">{parse(post.body)}</div>
+      <div className="body text-gray-800">{parse(post.body)}</div>
     </div>
   );
 }
