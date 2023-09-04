@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import parse from "html-react-parser";
 import { getDetail, getList } from "../../../libs/microcms";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   const { contents } = await getList();
@@ -26,9 +27,22 @@ export default async function StaticDetailPage({
   }
 
   return (
-    <div>
-      <h1 className="text-9xl text-center pt-10">{post.title}</h1>
-      <div>{parse(post.body)}</div>
+    <div className="mb-5 p-4 max-w-4xl m-auto">
+      <h1 className="text-5xl text-center py-3">{post.title}</h1>
+      <p className="py-3 text-right text-sm text-gray-500">
+        {new Date(post.createdAt).toLocaleDateString()}
+      </p>
+
+      {post.thumbnail && (
+        <Image
+          src={post.thumbnail.url}
+          alt="blog eyecatch"
+          width="1000"
+          height="630"
+          className="rounded  mx-auto"
+        />
+      )}
+      <div className="body">{parse(post.body)}</div>
     </div>
   );
 }
