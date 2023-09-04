@@ -2,9 +2,11 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header>
+    <header className="border-b py-3">
       <nav className="p-2">
-        <Link href="/">能力開発navi</Link>
+        <Link href="/" className="font-bold">
+          能力開発navi
+        </Link>
       </nav>
     </header>
   );
